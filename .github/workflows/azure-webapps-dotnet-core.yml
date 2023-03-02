@@ -53,7 +53,8 @@ jobs:
             ${{ runner.os }}-nuget-
 
       - name: Build with dotnet
-        run: dotnet build /Humongous.Healthcare/Humongous.Healthcare.csproj --configuration Release
+        working-directory: ./Humongous.Healthcare
+        run: dotnet build --configuration Release
 
       - name: dotnet publish
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
